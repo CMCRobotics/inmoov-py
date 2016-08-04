@@ -1,2 +1,2 @@
 # inmoov-cmc
-CERN Microclub software interface for inmoov control
+CERN Microclub software interface for [InMoov](http://inmoov.fr/) control.
