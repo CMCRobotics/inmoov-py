@@ -12,9 +12,12 @@ import logging
 
 
 class PwmHatHumanoid(Humanoid):
-    HKING_SERVO_MIN = 230  # Min pulse length out of 4096
-    HKING_SERVO_MAX = 540  # Max pulse length out of 4096
-    HKING_SERVO_MED = 230+130  # Max pulse length out of 4096
+    global HKING_SERVO_MIN  # Min pulse length out of 4096
+    HKING_SERVO_MIN = 230
+    global HKING_SERVO_MAX  # Max pulse length out of 4096
+    HKING_SERVO_MAX = 540
+    global HKING_SERVO_MED  # Med pulse length out of 4096
+    HKING_SERVO_MED = 230+130
 
     BLACK_SERVO_MIN = 120  # Min pulse length out of 4096
     BLACK_SERVO_MAX = 650  # Max pulse length out of 4096
