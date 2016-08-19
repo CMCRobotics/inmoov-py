@@ -5,7 +5,7 @@ Created on Aug 04, 2016
 @author: bcopy
 '''
 
-from inmmov.Humanoid import Humanoid
+from inmoov.Humanoid import Humanoid
 import Adafruit_PCA9685
 import time
 import logging
