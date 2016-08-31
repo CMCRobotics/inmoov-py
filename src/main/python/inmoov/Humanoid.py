@@ -34,6 +34,10 @@ class Humanoid(object):
         pass
 
     @abstractmethod
+    def finger_tension(self, fingers, position = 50, callback = None):
+        pass
+
+    @abstractmethod
     def finger_tension_delta(self, fingers, direction = DIR_LOOSEN, delta = 10, callback = None):
         pass
 
