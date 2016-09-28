@@ -96,25 +96,50 @@ class PwmHatHumanoid(Humanoid):
      Stop power to all servos
     '''
     def stop(self, callback = None):
+        # Adafruit_PCA9685.software_reset()
+        # self.pwm._device.writeRaw8(6)
         #  TODO : Stop all servos
         if callback is not None:
             callback()
+
+    '''
+     Calculate OFF time for given postion in %
+    '''
+    def _calc_off(self, pwmChannel, position):
+        servo = self.SERVOS[pwmChannel]
+        position = max(0, min(100, position))
+        return int(servo['min'] + (servo['max'] - servo['min']) * position/100.0)
+        
     
     '''
      Apply a new PWM and store the known value
      position in %
     '''
     def _apply_pwm(self, pwmChannel, position):
-        servo = self.SERVOS[pwmChannel]
-        position = max(0, min(100, position))
+        overShoot = 2
+        waitTime = 0.3
+        if position is self.servoPWM[pwmChannel]:
+            return
+        
+        # for debug:
         #print('_apply_pwm: channel = '+str(pwmChannel)+', position = '+str(position))
-        off = int(servo['min'] + (servo['max'] - servo['min']) * position/100.0)
-        self.pwm.set_pwm(pwmChannel, 0, off)
+
+        # move little bit more (because of the servo tenstion - see bellow)
+        if position < self.servoPWM[pwmChannel]:
+            self.pwm.set_pwm(pwmChannel, 0, self._calc_off(pwmChannel, max(0, position-overShoot)))
+        else:
+            self.pwm.set_pwm(pwmChannel, 0, self._calc_off(pwmChannel, min(100, position+overShoot)))
+        time.sleep(waitTime) # wait for the finger to reach the position
+
+        # move little bit back to the desired position (thus releasign servo tension a bit)
+        self.pwm.set_pwm(pwmChannel, 0, self._calc_off(pwmChannel, position))
+        time.sleep(waitTime) # wait for the finger to reach the position
         self.servoPWM[pwmChannel] = position
  
     def reset_all_servos(self, callback = None):
         for servo in self.FINGERS:
             self._apply_pwm(servo, 50)
+            time.sleep(0.1)
         if callback is not None:
             callback()
         
