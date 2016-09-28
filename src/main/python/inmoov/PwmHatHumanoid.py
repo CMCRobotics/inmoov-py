@@ -38,12 +38,12 @@ class PwmHatHumanoid(Humanoid):
 
     # finger connections (finger: PWM channel)
     FINGERS = { # TODO: its not just fingers... better name?
-        Humanoid.LEFT_FINGER_THUMB[0]: 0,
-        Humanoid.LEFT_FINGER_INDEX[0]: 1,
-        Humanoid.LEFT_FINGER_MIDDLE[0]: 2,
-        Humanoid.LEFT_FINGER_RING[0]: 3,
-        Humanoid.LEFT_FINGER_PINKY[0]: 4,
-        Humanoid.LEFT_WRIST_ROTATION[0]: 5
+        Humanoid.RIGHT_FINGER_THUMB[0]: 0,
+        Humanoid.RIGHT_FINGER_INDEX[0]: 1,
+        Humanoid.RIGHT_FINGER_MIDDLE[0]: 2,
+        Humanoid.RIGHT_FINGER_RING[0]: 3,
+        Humanoid.RIGHT_FINGER_PINKY[0]: 4,
+        Humanoid.RIGHT_WRIST_ROTATION[0]: 5
     }
 
    

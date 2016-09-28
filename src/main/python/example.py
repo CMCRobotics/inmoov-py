@@ -17,12 +17,12 @@ def DecToFingerBin(number):
             h.finger_tension([i], 15)
 
 # bad stuff, don't run this ;)
-#h.finger_tension(Humanoid.LEFT_FINGER_MIDDLE, position = 100)
+#h.finger_tension(Humanoid.RIGHT_FINGER_MIDDLE, position = 100)
 
 # thumb tremor
-#h.finger_tension(Humanoid.LEFT_FINGER_THUMB, position = 100)
+#h.finger_tension(Humanoid.RIGHT_FINGER_THUMB, position = 100)
 #for x in range(7):
-#    h.finger_tension_delta(Humanoid.LEFT_FINGER_THUMB, direction = Humanoid.DIR_TIGHTEN, delta = 10)
+#    h.finger_tension_delta(Humanoid.RIGHT_FINGER_THUMB, direction = Humanoid.DIR_TIGHTEN, delta = 10)
 #    time.sleep(1)
 
 # binary counting
