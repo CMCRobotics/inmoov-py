@@ -26,7 +26,7 @@ def DecToFingerBin(number):
 #    time.sleep(1)
 
 # binary counting
-h.finger_tension(Humanoid.LEFT_WRIST_ROTATION, 50)
+h.finger_tension(Humanoid.RIGHT_WRIST_ROTATION, 50)
 for number in range(32):
     print('Actual number: '+str(number))
     DecToFingerBin(number)
@@ -34,9 +34,9 @@ for number in range(32):
 
 # wrist moves
 #for x in range(3):
-#    h.finger_tension(Humanoid.LEFT_WRIST_ROTATION, 40)
+#    h.finger_tension(Humanoid.RIGHT_WRIST_ROTATION, 40)
 #    time.sleep(1)
-#    h.finger_tension(Humanoid.LEFT_WRIST_ROTATION, 60)
+#    h.finger_tension(Humanoid.RIGHT_WRIST_ROTATION, 60)
 #    time.sleep(1)
 
 # clock
