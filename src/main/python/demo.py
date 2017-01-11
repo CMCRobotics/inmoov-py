@@ -22,7 +22,7 @@ h.reset_all_servos()
 #while True:
 #for number in range(5):
 #print('Actual number: '+str(number))
-for i in range(11):
+for i in range(5):
     print('Digit: ' +str(i))
     h.finger_tension([i], 90)
     time.sleep(1)

@@ -43,7 +43,7 @@ class PwmHatHumanoid(Humanoid):
         Humanoid.RIGHT_FINGER_MIDDLE[0]: 2,
         Humanoid.RIGHT_FINGER_RING[0]: 3,
         Humanoid.RIGHT_FINGER_PINKY[0]: 4,
-        Humanoid.RIGHT_WRIST_ROTATION[0]: 5
+#        Humanoid.RIGHT_WRIST_ROTATION[0]: 5
     }
 
    
@@ -118,6 +118,7 @@ class PwmHatHumanoid(Humanoid):
     def _apply_pwm(self, pwmChannel, position):
         overShoot = 2
         waitTime = 0.3
+        # TODO: check the position range (0-100)
         if position is self.servoPWM[pwmChannel]:
             return
         
