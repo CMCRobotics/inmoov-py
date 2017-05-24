@@ -1,3 +1,4 @@
+from gpiozero import Button
 from inmoov.Humanoid import Humanoid
 from inmoov.PwmHatHumanoid import PwmHatHumanoid
 
@@ -5,24 +6,18 @@ h = PwmHatHumanoid()
 h.initialize()
 h.reset_all_servos()
 
+button = Button(io_pin_number_where_stick_central_pushbutton_is_connected)
+
+print "Press the stick central button to grab a cup. Press it again to release it."
 while True:
     h.finger_tension(Humanoid.RIGHT_FINGERS, position = 95)
-
-    key = raw_input("Give me a cup, please (and press Enter)")
-    if key == 'q':
-        break
-
+    button.wait_for_press()
     h.finger_tension(Humanoid.RIGHT_FINGER_THUMB, position = 85)
     h.finger_tension(Humanoid.RIGHT_FINGER_INDEX, position = 55)
     h.finger_tension(Humanoid.RIGHT_FINGER_MIDDLE, position = 45)
     h.finger_tension(Humanoid.RIGHT_FINGER_RING, position = 55)
     h.finger_tension(Humanoid.RIGHT_FINGER_PINKY, position = 55)
-
-    key = raw_input("Take the cup, please (and press Enter)")
-    if key == 'q':
-        break
-
-    h.finger_tension(Humanoid.RIGHT_FINGERS, position = 95)
+    button.wait_for_press()
 
 h.stop()
 h.initialize()
