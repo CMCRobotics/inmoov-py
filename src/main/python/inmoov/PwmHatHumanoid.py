@@ -96,9 +96,7 @@ class PwmHatHumanoid(Humanoid):
      Stop power to all servos
     '''
     def stop(self, callback = None):
-        # Adafruit_PCA9685.software_reset()
-        # self.pwm._device.writeRaw8(6)
-        #  TODO : Stop all servos
+        self.pwm.set_all_pwm(0,0)
         if callback is not None:
             callback()
 
