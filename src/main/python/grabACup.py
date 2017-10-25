@@ -6,7 +6,7 @@ h = PwmHatHumanoid()
 h.initialize()
 h.reset_all_servos()
 
-button = Button(io_pin_number_where_stick_central_pushbutton_is_connected)
+button = Button(4)
 
 print "Press the stick central button to grab a cup. Press it again to release it."
 while True:
